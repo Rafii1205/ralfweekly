@@ -14,10 +14,10 @@
         <h1>WEB TI | RALF</h1>
         <table cellspacing="0" cellpadding="10px">
         <tr>
-        <td><a href="index.html">home</a></td>
-        <td><a href="profile.html">profile</a></td>
-        <td><a href="contact.html">contact</a></td>
-        <td><a href="mahasiswa.html">data</a></td>
+        <td><a href="index.php">home</a></td>
+        <td><a href="profile.php">profile</a></td>
+        <td><a href="contact.php">contact</a></td>
+        <td><a href="mahasiswa.php">data</a></td>
     </tr>
     </table>
 </header>

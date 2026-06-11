@@ -11,36 +11,40 @@
     <h1 align="center">WEBTI | RALF</h1>
     <table border="1" cellspacing="0" cellpadding="10px" align="center">
         <tr>
-            <td><a href="index.html">home</a></td>
-            <td><a href="profile.html">profile</a></td>
-            <td><a href="contact.html">contact</a></td>
-            <td><a href="mahasiswa.html">data</a></td>
+            <td><a href="index.php">home</a></td>
+            <td><a href="profile.php">profile</a></td>
+            <td><a href="contact.php">contact</a></td>
+            <td><a href="mahasiswa.php">data</a></td>
         </tr>
     </table>
-    <h1 align="center">data mahasiswa</h1>
-    <table border="1" cellpadding="5px" cellspacing="0" align="center">
+    <h1>data mahasiswa</h1>
+    <table border="1" cellpadding="10px" cellspacing="0" 
         <tr>
-            <td>1.1</td>
-            <td>1.2</td>
-            <td>1.3</td>
-            <td>1.4</td>
+            <th>id</th>
+            <th>nama</th>
+            <th>nim</th>
+            <th>prodi</th>
+            <th>email</th>
+            <th>no_hp</th>
+            <th>foto</th>
+            <th>aksi</th>
         </tr>
         <tr>
-            <td>2.1</td>
-            <td colspan="2" rowspan="2">?</td>
-            <td>2.4</td>
+        <a href="tambah.php"><button>Tambah data</button></a>
+        <td>1</td>
+        <td>Muhammad Rafi</td>
+        <td>123123123123</td>
+        <td>Teknologi Informasi</td>
+        <td>Ralf@gmail.com</td>
+        <td>08888888888</td>
+        <td>
+            <img src="/asset/logo.png" alt="" width='100px'></td>
+        <td>
+            <a href="edit.php"><button>Edit</button></a> <b>|</b> 
+            <a href="delete.php"><button>hapus</button></a>
+        </td>
         </tr>
-        <tr>
-            <td>3.1</td>
-            <td>3.4</td>
-        </tr>
-        <tr>
-            <td>4.1</td>
-            <td>4.2</td>
-            <td>4.3</td>
-            <td>4.4</td>
-        </tr>
-        
+       
     </table>
 
 </body>

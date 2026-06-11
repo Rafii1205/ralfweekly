@@ -9,10 +9,10 @@
     <h1 align="center">WEB TI | RALF</h1>
         <table border="1" cellspacing="0" cellpadding="10px" align="center">
             <tr>
-        <td><a href="index.html">home</a></td>
-        <td><a href="profile.html">profile</a></td>
-        <td><a href="contact.html">contact</a></td>
-        <td><a href="mahasiswa.html">data</a></td>
+        <td><a href="index.php">home</a></td>
+        <td><a href="profile.php">profile</a></td>
+        <td><a href="contact.php">contact</a></td>
+        <td><a href="mahasiswa.php">data</a></td>
     </tr>
     </table>
     <br><br>
