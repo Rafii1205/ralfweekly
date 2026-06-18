@@ -1,3 +1,12 @@
+<?php
+$query="SELECT * FROM mahasiswa";
+$konek=mysqli_connect('localhost','root','','mraweekly');
+$result=mysqli_query($konek,$query);
+// echo $result;
+// echo $mhs["nim"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,24 +38,27 @@
             <th>foto</th>
             <th>aksi</th>
         </tr>
+
+        <?php
+        while($mhs= mysqli_fetch_assoc($result)){
+
+       ?>
         <tr>
         <a href="tambah.php"><button>Tambah data</button></a>
-        <td>1</td>
-        <td>Muhammad Rafi</td>
-        <td>123123123123</td>
-        <td>Teknologi Informasi</td>
-        <td>Ralf@gmail.com</td>
-        <td>08888888888</td>
+        <td><?= $mhs['id']?></td>
+        <td><?php echo $mhs['nama']?></td>
+        <td><?php echo $mhs['nim']?></td>
+        <td><?php echo $mhs['prodi']?></td>
+        <td><?php echo $mhs['email']?></td>
+        <td><?= $mhs['nama']?></td>
         <td>
-            <img src="/asset/logo.png" alt="" width='100px'></td>
+            <img src="/asset/<?=$mhs['foto']?> " alt="" width='100px'></td>
         <td>
             <a href="edit.php"><button>Edit</button></a> <b>|</b> 
             <a href="delete.php"><button>hapus</button></a>
         </td>
-        </tr>
-       
+        </tr>    
+        <?php } ?>   
     </table>
-
 </body>
-
 </html>
