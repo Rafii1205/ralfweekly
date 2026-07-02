@@ -1,10 +1,10 @@
 <?php
+require 'function.php';
 $query="SELECT * FROM mahasiswa";
-$konek=mysqli_connect('localhost','root','','mraweekly');
-$result=mysqli_query($konek,$query);
+
 // echo $result;
 // echo $mhs["nim"];
-
+$mahasiswas=tampildata($query); 
 ?>
 
 <!DOCTYPE html>
@@ -38,14 +38,15 @@ $result=mysqli_query($konek,$query);
             <th>foto</th>
             <th>aksi</th>
         </tr>
-
+         <a href="tambah.php"><button>Tambah data</button></a>
         <?php
-        while($mhs= mysqli_fetch_assoc($result)){
+        $no=1;
+        foreach($mahasiswas as $mhs){
 
        ?>
         <tr>
-        <a href="tambah.php"><button>Tambah data</button></a>
-        <td><?= $mhs['id']?></td>
+       
+        <td><?= $no ?></td>
         <td><?php echo $mhs['nama']?></td>
         <td><?php echo $mhs['nim']?></td>
         <td><?php echo $mhs['prodi']?></td>
@@ -55,10 +56,10 @@ $result=mysqli_query($konek,$query);
             <img src="/asset/<?=$mhs['foto']?> " alt="" width='100px'></td>
         <td>
             <a href="edit.php"><button>Edit</button></a> <b>|</b> 
-            <a href="delete.php"><button>hapus</button></a>
+            <a href="delete.php?id=<?=$mhs['id']?>" onclick="return confirm('Yakin ingin menghapus?')"><button>hapus</button></a>
         </td>
         </tr>    
-        <?php } ?>   
+        <?php $no++;} ?>   
     </table>
 </body>
 </html>
