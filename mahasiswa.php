@@ -34,7 +34,7 @@ $mahasiswas=tampildata($query);
             <th>nim</th>
             <th>prodi</th>
             <th>email</th>
-            <th>no_hp</th>
+            <th>no hp</th>
             <th>foto</th>
             <th>aksi</th>
         </tr>
@@ -51,11 +51,11 @@ $mahasiswas=tampildata($query);
         <td><?php echo $mhs['nim']?></td>
         <td><?php echo $mhs['prodi']?></td>
         <td><?php echo $mhs['email']?></td>
-        <td><?= $mhs['nama']?></td>
+        <td><?= $mhs['no_hp']?></td>
         <td>
             <img src="/asset/<?=$mhs['foto']?> " alt="" width='100px'></td>
         <td>
-            <a href="edit.php"><button>Edit</button></a> <b>|</b> 
+            <a href="edit.php?id=<?=$mhs['id']?>"><button>Edit</button></a> <b>|</b> 
             <a href="delete.php?id=<?=$mhs['id']?>" onclick="return confirm('Yakin ingin menghapus?')"><button>hapus</button></a>
         </td>
         </tr>    

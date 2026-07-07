@@ -1,36 +1,40 @@
 <?php
 require 'function.php';
+$id=$_GET["id"];
+$query= "SELECT * FROM mahasiswa WHERE id=$id";
+$mhs= tampildata($query)[0];
+// var_dump($mhs);die;
 if(isset($_POST["submit"]))
 {
-    // var_dump($_FILES['foto']['name']);die;
-    if(tambah($_POST,$_FILES['foto']) > 0){
-    echo "<script>alert('berhasil tambah data');
+    
+    if(edit($_POST,$_FILES,$id) > 0){
+    echo "<script>alert('berhasil edit data');
     window.location.href='mahasiswa.php'</script>";
 }else{
-    echo "<script>alert('gagal mtambah data!');
+    echo "<script>alert('gagal edit data!');
     window.location.href='mahasiswa.php'</script>";
 }
-}
+}   
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tambah Data Mahasiswa</title>
+    <title>Edit Data Mahasiswa</title>
 </head>
 <body>
 
-    <h2>Tambah Data Mahasiswa</h2>
+    <h2>Edit Data Mahasiswa</h2>
 
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype=multipart/form-data>
         <table cellpadding="5">
 
             <tr>
                 <td><label for="nama">Nama</label></td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="nama" id="nama" required>
+                    <input type="text" name="nama" id="nama" required value="<?=$mhs['nama']?>">
                 </td>
             </tr>
 
@@ -38,7 +42,7 @@ if(isset($_POST["submit"]))
                 <td><label for="nim">NIM</label></td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="nim" id="nim" required>
+                    <input type="text" name="nim" id="nim" required value="<?=$mhs['nim']?>">
                 </td>
             </tr>
 
@@ -46,7 +50,7 @@ if(isset($_POST["submit"]))
                 <td><label for="prodi">Prodi</label></td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="prodi" id="prodi" required>
+                    <input type="text" name="prodi" id="prodi" required value="<?=$mhs['prodi']?>"> 
                 </td>
             </tr>
 
@@ -54,7 +58,7 @@ if(isset($_POST["submit"]))
                 <td><label for="email">Email</label></td>
                 <td>:</td>
                 <td>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required value="<?=$mhs['email']?>">
                 </td>
             </tr>
 
@@ -62,7 +66,7 @@ if(isset($_POST["submit"]))
                 <td><label for="no_hp">No HP</label></td>
                 <td>:</td>
                 <td>
-                    <input type="number" name="no_hp" id="no_hp" required>
+                    <input type="number" name="no_hp" id="no_hp" required value="<?=$mhs['no_hp']?>">
                 </td>
             </tr>
 
@@ -70,16 +74,13 @@ if(isset($_POST["submit"]))
                 <td><label for="foto">Foto</label></td>
                 <td>:</td>
                 <td>
-                    <input type="file" name="foto" id="foto" placeholder="contoh: foto.jpg">
+                    <input type="file" name="foto" id="foto"  value="<?=$mhs['foto']?>">
                 </td>
             </tr>
 
             <tr>
                 <td colspan="3">
-                    <button type="submit" name="submit">Tambah Data</button>
-                    <a href="mahasiswa.php">
-                        <button type="button">Kembali</button>
-                    </a>
+                    <button type="submit" name="submit">Edit Data</button>
                 </td>
             </tr>
 
