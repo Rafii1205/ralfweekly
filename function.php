@@ -37,28 +37,33 @@
     return mysqli_affected_rows($konek);
 
  }
- function edit($data,$id){
+ function edit($data,$files,$id){
    global $konek;
     $nama=htmlspecialchars($data["nama"]);
     $nim=htmlspecialchars($data["nim"]);
     $prodi=htmlspecialchars($data["prodi"]);
     $email=htmlspecialchars($data["email"]);
     $no_hp=htmlspecialchars($data["no_hp"]);
-    $namafoto=$files["name"];
-    $tmpfoto=$files["tmp_name"];
-    $path="asset/$namafoto";
 
-    if(move_uploaded_file($tmpfoto, $path)){
+    if($files["foto"]["size"] > 0){
+        $namafoto=$files["foto"]["name"];
+        $tmpfoto=$files["foto"]["tmp_name"];
+        $path="asset/".$namafoto;
+        move_uploaded_file($tmpfoto, $path);
+        $foto=", foto='$namafoto'";
+    } else {
+        $foto="";
+    }
+
     $query="UPDATE mahasiswa SET 
             nama='$nama',
             nim='$nim',
             prodi='$prodi',
             email='$email',
-            no_hp='$no_hp',
-            foto='$namafoto'
+            no_hp='$no_hp'
+            $foto
             WHERE id='$id'";
     mysqli_query($konek,$query);
-    }
     return mysqli_affected_rows($konek);
  }
  

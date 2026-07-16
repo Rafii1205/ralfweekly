@@ -3,77 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
+    <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>
-    <h1 align="center">WEB TI | RALF</h1>
-        <table border="1" cellspacing="0" cellpadding="10px" align="center">
+    <header>
+        <h1>WEBTI | RALF</h1>
+        <table cellspacing="0" cellpadding="10px">
             <tr>
-        <td><a href="index.php">home</a></td>
-        <td><a href="profile.php">profile</a></td>
-        <td><a href="contact.php">contact</a></td>
-        <td><a href="mahasiswa.php">data</a></td>
-    </tr>
-    </table>
-    <br><br>
-    <h1>FORM</h1>
-    <form action="">
-    <table cellspacing="5">
-        <tr>
-            <td><label for="">Nama</label><input type="text"></td>
-        </tr>
-        <tr>
-            <td><label for="">NIM</label><input type="number" name="" id=""></td>
-        </tr>
-        <tr>
-            <td><label for="">password</label><input type="password"></td>
-        </tr>
-        <tr>
-            <td><label for="">email</label><input type="email" name="" id=""></td>
-        </tr>
-        <tr>
-            <td><label for="">No hp</label><input type="tel"></td>
-        </tr>
-        <tr>
-            <td><label for="">Website</label><input type="url" name="" id=""></td>
-        </tr>
-        <tr>
-            <td><label for="">Tanggal lahir</label><input type="date" name="" id=""></td>
-        </tr>
-        <tr>
-            <td><label for="">Warna Fav</label><input type="color" name="" id=""></td>
-        </tr>
-        <tr>
-            <td><label for="">Tingkat Kepuasan</label><input type="range"></td>
-        </tr>
-        <tr>
-            <td><label for="Jenis kelamin">Jenis Kelamin</label><br>
-                <input type="radio"><label for="">Male</label><input type="radio"><label for="">Female</label></td>
-        </tr>
-        <tr>
-            <td><label for="">Hobi</label><br>
-                <input type="checkbox"><label for="">Badminton</label>
-                <input type="checkbox"><label for="">voli</label>
-                <input type="checkbox"><label for="">Futsal</label></td>
-        </tr>
-        <tr>
-            <td><label for="">Upload Foto</label><input type="file">
-            </td>
-        </tr>
-        <tr>
-            <td><label for="">Alamat</label><input type="textarea"></td>
-        </tr>
-        <tr>
-            <td><label for="">Jurusan</label><select name="cars" id="cars">
-  <option value="">Informatika</option>
-  <option value="">Teknologi Informasi</option>
-  <option value="">Desain Komunikasi Visual</option>
-  <option value="">Artificial Intelligence</option></td>
-        </tr>
-        <tr>
-            <td></td>
-        </tr>
-    </table>
-</form>
+                <td><a href="index.php">home</a></td>
+                <td><a href="contact.php">contact</a></td>
+                <td><a href="mahasiswa.php">data</a></td>
+            </tr>
+        </table>
+    </header>
+
+    <div class="contact-form">
+        <h2>Form</h2>
+        <form action="">
+            <table cellspacing="5">
+                <tr>
+                    <td>
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" id="nama">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nim">NIM</label>
+                        <input type="number" name="nim" id="nim">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="no_hp">No HP</label>
+                        <input type="tel" name="no_hp" id="no_hp">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="website">Website</label>
+                        <input type="url" name="website" id="website">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tgl_lahir">Tanggal Lahir</label>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="warna">Warna Fav</label>
+                        <input type="color" name="warna" id="warna">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="kepuasan">Tingkat Kepuasan</label>
+                        <input type="range" name="kepuasan" id="kepuasan">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Jenis Kelamin</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="jk" value="male"> Male</label>
+                            <label><input type="radio" name="jk" value="female"> Female</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Hobi</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="hobi[]" value="badminton"> Badminton</label>
+                            <label><input type="checkbox" name="hobi[]" value="voli"> Voli</label>
+                            <label><input type="checkbox" name="hobi[]" value="futsal"> Futsal</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="foto">Upload Foto</label>
+                        <input type="file" name="foto" id="foto">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="alamat">Alamat</label>
+                        <textarea name="alamat" id="alamat" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="jurusan">Jurusan</label>
+                        <select name="jurusan" id="jurusan">
+                            <option value="informatika">Informatika</option>
+                            <option value="ti">Teknologi Informasi</option>
+                            <option value="dkv">Desain Komunikasi Visual</option>
+                            <option value="ai">Artificial Intelligence</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Kirim</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

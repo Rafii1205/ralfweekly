@@ -1,35 +1,453 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px auto;
-    background-color: grey;
-    border-radius: 20px;
-    height: 60px;
-    width: 80%;
-    
-}
-header h1{
-    font-family: "Space Grotesk",sans-serif;
-}
-table a{
-    font-size: 14px;
-    font-family: "Space Grotesk",sans-serif;
-    font-weight: 500;
-    color: rgb(0, 0, 0);
-    text-decoration: none;   
-    text-transform: uppercase;
-}
-main{
-    display: flex;
 
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    min-height: 100vh;
 }
-main p{
-    font-family: "Poppins";
-    max-width: 800px;
-    margin: 30px auto;
+
+/* ========== HEADER / NAVIGATION ========== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    height: 70px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+    color: #e94560;
+    letter-spacing: 1px;
+}
+
+header table {
+    border: none;
+}
+
+header table td {
+    border: none;
+    padding: 0 12px;
+}
+
+header table a {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+header table a:hover {
+    color: #fff;
+    background-color: rgba(233, 69, 96, 0.3);
+}
+
+/* ========== PAGE TITLES ========== */
+h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 28px;
+    color: #1a1a2e;
+    margin: 30px 0 20px;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ========== DATA TABLE (mahasiswa.php) ========== */
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 30px auto 15px;
+    padding: 0 20px;
+}
+
+.data-header h2 {
+    margin: 0;
+}
+
+.table-wrapper {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.data-table thead tr {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.data-table th {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8f9ff;
+    transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table img {
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+    display: inline-block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e94560, #c23152);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #0f9b58, #0a7c42);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(15, 155, 88, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 155, 88, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.action-divider {
+    color: #ccc;
+    margin: 0 4px;
+}
+
+/* ========== FORMS (edit.php, tambah.php) ========== */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto 40px;
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-container table {
+    width: 100%;
+    border: none;
+}
+
+.form-container td {
+    padding: 8px 0;
+    border: none;
+    vertical-align: middle;
+}
+
+.form-container label {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container input[type="password"],
+.form-container input[type="tel"],
+.form-container input[type="url"],
+.form-container input[type="date"],
+.form-container select {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #e94560;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.form-container input[type="file"] {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    border: 2px dashed #d0d0d0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    width: 100%;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-container input[type="file"]:hover {
+    border-color: #e94560;
+}
+
+.form-container .form-actions {
+    padding-top: 15px;
+}
+
+.form-container .form-actions .btn {
+    margin-right: 10px;
+}
+
+/* ========== MAIN (index.php) ========== */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+main p {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 700px;
+}
+
+main img {
+    max-width: 280px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== CONTACT PAGE ========== */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto 40px;
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form table {
+    width: 100%;
+    border: none;
+}
+
+.contact-form td {
+    padding: 8px 0;
+    border: none;
+    vertical-align: middle;
+}
+
+.contact-form label {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="number"],
+.contact-form input[type="password"],
+.contact-form input[type="tel"],
+.contact-form input[type="url"],
+.contact-form input[type="date"],
+.contact-form select {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form select:focus {
+    border-color: #e94560;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.contact-form input[type="file"] {
+    padding: 8px;
+    border: 2px dashed #d0d0d0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    width: 100%;
+    cursor: pointer;
+}
+
+.contact-form input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form input[type="range"] {
+    width: 100%;
+    accent-color: #e94560;
+}
+
+.contact-form input[type="radio"],
+.contact-form input[type="checkbox"] {
+    accent-color: #e94560;
+    margin-right: 4px;
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+    outline: none;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.contact-form textarea:focus {
+    border-color: #e94560;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+
+    header table td {
+        padding: 4px 8px;
+    }
+
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-container,
+    .contact-form {
+        margin: 20px 10px;
+        padding: 25px 20px;
+    }
+
+    .data-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
 }

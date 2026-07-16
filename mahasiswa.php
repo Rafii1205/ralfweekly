@@ -1,9 +1,6 @@
 <?php
 require 'function.php';
 $query="SELECT * FROM mahasiswa";
-
-// echo $result;
-// echo $mhs["nim"];
 $mahasiswas=tampildata($query); 
 ?>
 
@@ -13,53 +10,65 @@ $mahasiswas=tampildata($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Data Mahasiswa</title>
+    <link rel="stylesheet" href="asset/style.css">
 </head>
 
 <body>
-    <h1 align="center">WEBTI | RALF</h1>
-    <table border="1" cellspacing="0" cellpadding="10px" align="center">
-        <tr>
-            <td><a href="index.php">home</a></td>
-            <td><a href="profile.php">profile</a></td>
-            <td><a href="contact.php">contact</a></td>
-            <td><a href="mahasiswa.php">data</a></td>
-        </tr>
-    </table>
-    <h1>data mahasiswa</h1>
-    <table border="1" cellpadding="10px" cellspacing="0" 
-        <tr>
-            <th>id</th>
-            <th>nama</th>
-            <th>nim</th>
-            <th>prodi</th>
-            <th>email</th>
-            <th>no hp</th>
-            <th>foto</th>
-            <th>aksi</th>
-        </tr>
-         <a href="tambah.php"><button>Tambah data</button></a>
-        <?php
-        $no=1;
-        foreach($mahasiswas as $mhs){
+    <header>
+        <h1>WEBTI | RALF</h1>
+        <table cellspacing="0" cellpadding="10px">
+            <tr>
+                <td><a href="index.php">home</a></td>
+                <td><a href="contact.php">contact</a></td>
+                <td><a href="mahasiswa.php">data</a></td>
+            </tr>
+        </table>
+    </header>
 
-       ?>
-        <tr>
-       
-        <td><?= $no ?></td>
-        <td><?php echo $mhs['nama']?></td>
-        <td><?php echo $mhs['nim']?></td>
-        <td><?php echo $mhs['prodi']?></td>
-        <td><?php echo $mhs['email']?></td>
-        <td><?= $mhs['no_hp']?></td>
-        <td>
-            <img src="/asset/<?=$mhs['foto']?> " alt="" width='100px'></td>
-        <td>
-            <a href="edit.php?id=<?=$mhs['id']?>"><button>Edit</button></a> <b>|</b> 
-            <a href="delete.php?id=<?=$mhs['id']?>" onclick="return confirm('Yakin ingin menghapus?')"><button>hapus</button></a>
-        </td>
-        </tr>    
-        <?php $no++;} ?>   
-    </table>
+    <div class="data-header">
+        <h2>Data Mahasiswa</h2>
+        <a href="tambah.php" class="btn btn-primary">+ Tambah Data</a>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Prodi</th>
+                    <th>Email</th>
+                    <th>No HP</th>
+                    <th>Foto</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $no=1;
+                foreach($mahasiswas as $mhs){
+                ?>
+                <tr>
+                    <td><?= $no ?></td>
+                    <td><?= htmlspecialchars($mhs['nama']) ?></td>
+                    <td><?= htmlspecialchars($mhs['nim']) ?></td>
+                    <td><?= htmlspecialchars($mhs['prodi']) ?></td>
+                    <td><?= htmlspecialchars($mhs['email']) ?></td>
+                    <td><?= htmlspecialchars($mhs['no_hp']) ?></td>
+                    <td>
+                        <img src="asset/<?= htmlspecialchars($mhs['foto']) ?>" alt="foto <?= htmlspecialchars($mhs['nama']) ?>" width="80">
+                    </td>
+                    <td>
+                        <a href="edit.php?id=<?= $mhs['id'] ?>" class="btn btn-success">Edit</a>
+                        <span class="action-divider">|</span>
+                        <a href="delete.php?id=<?= $mhs['id'] ?>" onclick="return confirm('Yakin ingin menghapus?')" class="btn btn-danger">Hapus</a>
+                    </td>
+                </tr>
+                <?php $no++; } ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
